@@ -7,6 +7,7 @@ import { useState } from "react";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
+import Image from "next/image";
 
 export const BentoGrid = ({
   className,
@@ -70,10 +71,12 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <img
+            <Image
               src={img}
               className={cn(imgClassName, "object-cover object-center ")}
               alt={img}
+              width={300}
+              height={300}
             />
           )}
         </div>
@@ -83,10 +86,12 @@ export const BentoGridItem = ({
           }`}
         >
           {spareImg && (
-            <img
+            <Image
               src={spareImg}
               className={"object-cover object-center w-full h-full"}
               alt={spareImg}
+              width={300}
+              height={300}
             />
           )}
         </div>
@@ -113,8 +118,8 @@ export const BentoGridItem = ({
           {id === 2 && <GlobeDemo />}
 
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              <div className="flex flex-col gap-3 lg:gap-8">
+            <div className="flex gap-1 lg:gap-4 w-fit absolute -right-3 lg:-right-2">
+              <div className="flex flex-col gap-3 lg:gap-4">
                 {["React", "Next.js", "TailwindCSS"].map((item) => (
                   <span
                     key={item}
@@ -125,7 +130,7 @@ export const BentoGridItem = ({
                 ))}
                 <span className="py-4 px-3 rounded-lg text-center bg-[#1c1c1d]" />
               </div>
-              <div className="flex flex-col gap-3 lg:gap-8">
+              <div className="flex flex-col gap-3 lg:gap-4">
                 <span className="py-4 px-3 rounded-lg text-center bg-[#1c1c1d]" />
                 {["JavaScript", "Node JS", "Express Js"].map((item) => (
                   <span
