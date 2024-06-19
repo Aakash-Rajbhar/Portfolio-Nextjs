@@ -90,14 +90,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     maxRings: 3,
     ...globeConfig,
   };
-
-  useEffect(() => {
-    if (globeRef.current) {
-      _buildData();
-      _buildMaterial();
-    }
-  }, [globeRef.current, globeConfig]);
-
+  
   const _buildMaterial = () => {
     if (!globeRef.current) return;
 
@@ -147,6 +140,14 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     setGlobeData(filteredPoints);
   };
+
+  useEffect(() => {
+    if (globeRef.current) {
+      _buildData();
+      _buildMaterial();
+    }
+  }, [globeRef.current, globeConfig, _buildData, _buildMaterial]);
+
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
@@ -198,8 +199,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .hexPolygonColor((e) => {
           return defaultProps.polygonColor;
         });
-      startAnimation();
-    }
+        startAnimation();
+      }
   }, [globeData, defaultProps.showAtmosphere, defaultProps.atmosphereColor, defaultProps.atmosphereAltitude, defaultProps.polygonColor, startAnimation]);
 
 
@@ -223,7 +224,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeRef.current, globeData, data.length]);
+  }, [ globeData, data.length]);
 
   return (
     <>
