@@ -18,7 +18,7 @@ export function TypewriterEffectSmoothDemo() {
     },
     {
       text: "Rajbhar",
-      className: "text-purple-500 dark:text-purple-500",
+      className: " dark:text-violet-500 text-violet-500",
     },
   ];
   return (

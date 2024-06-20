@@ -100,7 +100,7 @@ export const navItems = [
       title: "Blog Website - Cooding Nook",
       des: "A blog website with a clean and minimalist design, built using MERN stack. It features authentication, and CRUD operations.",
       img: "/project4.png",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+      iconLists: ["/js.svg", "/node.svg", "/mongo.svg", ],
       link: "https://github.com/Aakash-Rajbhar/Blog-Website",
     },
   ];
