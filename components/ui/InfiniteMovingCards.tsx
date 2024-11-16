@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { cn } from "@/utils/cn";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { cn } from '@/utils/cn';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 export const InfiniteMovingCards = ({
   items,
-  direction = "left",
-  speed = "fast",
+  direction = 'left',
+  speed = 'normal',
   pauseOnHover = true,
   className,
 }: {
@@ -17,8 +17,8 @@ export const InfiniteMovingCards = ({
     title: string;
     serviceIcon: string;
   }[];
-  direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
+  direction?: 'left' | 'right';
+  speed?: 'fast' | 'normal' | 'slow';
   pauseOnHover?: boolean;
   className?: string;
 }) => {
@@ -47,27 +47,27 @@ export const InfiniteMovingCards = ({
   }
   const getDirection = () => {
     if (containerRef.current) {
-      if (direction === "left") {
+      if (direction === 'left') {
         containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
+          '--animation-direction',
+          'forwards'
         );
       } else {
         containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
+          '--animation-direction',
+          'reverse'
         );
       }
     }
   };
   const getSpeed = () => {
     if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
+      if (speed === 'fast') {
+        containerRef.current.style.setProperty('--animation-duration', '20s');
+      } else if (speed === 'normal') {
+        containerRef.current.style.setProperty('--animation-duration', '40s');
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+        containerRef.current.style.setProperty('--animation-duration', '80s');
       }
     }
   };
@@ -75,25 +75,25 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  w-full overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        'scroller relative z-20  w-full overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap",
-          start && "animate-scroll ",
-          pauseOnHover && "hover:[animation-play-state:paused]"
+          ' flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap',
+          start && 'animate-scroll ',
+          pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
       >
         {items.map((item, idx) => (
           <li
             className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-400 p-5 md:p-16 md:w-[50vw]"
             style={{
-                background: " rgba(23,23,23, .6)",
-                backgroundColor:
-                  "linear-gradient(90deg, rgba(23,23,23,1) 0%, rgba(0,0,0,1) 100%)",
+              background: ' rgba(23,23,23, .6)',
+              backgroundColor:
+                'linear-gradient(90deg, rgba(23,23,23,1) 0%, rgba(0,0,0,1) 100%)',
             }}
             key={idx}
           >
@@ -105,7 +105,13 @@ export const InfiniteMovingCards = ({
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
                   <div className="me-3">
-                    <Image width={56} height={56} src={item.serviceIcon}alt="profile" className="w-14 h-14" />
+                    <Image
+                      width={56}
+                      height={56}
+                      src={item.serviceIcon}
+                      alt="profile"
+                      className="w-14 h-14"
+                    />
                   </div>
                   <div className="flex flex-col gap-1">
                     <span className=" text-3xl leading-[1.6] text-white font-bold">
@@ -117,7 +123,6 @@ export const InfiniteMovingCards = ({
               <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal">
                 {item.quote}
               </span>
-              
             </blockquote>
           </li>
         ))}
