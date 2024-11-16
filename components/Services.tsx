@@ -6,7 +6,7 @@ import { div } from 'three/examples/jsm/nodes/Nodes.js';
 const Clients = () => {
   return (
     <div className="py-20" id="services">
-      <h1 className="heading pb-4">
+      <h1 className="heading pb-4 text-neutral-600 dark:text-neutral-200">
         <span className="text-purple">Services </span> that I offer
       </h1>
 
