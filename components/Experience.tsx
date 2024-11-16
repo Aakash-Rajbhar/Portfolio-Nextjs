@@ -1,12 +1,12 @@
-import { workExperience } from "@/data";
-import React from "react";
+import { workExperience } from '@/data';
+import React from 'react';
 import Image from 'next/image';
-import { Button } from "./ui/MovingBorders";
+import { Button } from './ui/MovingBorders';
 
 const Experience = () => {
   return (
     <div className="py-20" id="testimonials">
-      <h1 className="heading">
+      <h1 className="heading text-neutral-600 dark:text-neutral-200">
         My <span className="text-purple">Qualification &amp; Experience</span>
       </h1>
 
