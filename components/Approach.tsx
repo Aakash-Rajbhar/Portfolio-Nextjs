@@ -1,14 +1,14 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
-import { AnimatePresence, motion } from "framer-motion";
-import { CanvasRevealEffect } from "@/components/ui/CanvasRevealEffect";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
+import { AnimatePresence, motion } from 'framer-motion';
+import { CanvasRevealEffect } from '@/components/ui/CanvasRevealEffect';
+import { div } from 'three/examples/jsm/nodes/Nodes.js';
 
 const Approach = () => {
   return (
     <section className="w-full py-20">
-      <h1 className="heading">
+      <h1 className="heading text-neutral-600 dark:text-neutral-200">
         My <span className="text-purple">approach</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4 mx-auto">
@@ -22,9 +22,10 @@ const Approach = () => {
             containerClassName="bg-emerald-900"
           />
         </Card>
-        <Card title="Development & Design"
-         icon={<AceternityIcon order="Phase 2" />}
-         description="I design the project to ensure the best outcome. Our team will work on the project to ensure the best outcome."
+        <Card
+          title="Development & Design"
+          icon={<AceternityIcon order="Phase 2" />}
+          description="I design the project to ensure the best outcome. Our team will work on the project to ensure the best outcome."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -36,11 +37,11 @@ const Approach = () => {
             dotSize={2}
           />
         </Card>
-        <Card title="Development & Launch"
-         icon={<AceternityIcon
-          order="Phase 3" />}
-            description="I develop the project to ensure the best outcome. Our team will work on the project to ensure the best outcome."
-          >
+        <Card
+          title="Development & Launch"
+          icon={<AceternityIcon order="Phase 3" />}
+          description="I develop the project to ensure the best outcome. Our team will work on the project to ensure the best outcome."
+        >
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-sky-600"
@@ -61,7 +62,7 @@ const Card = ({
   title: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
-    description: string;
+  description: string;
 }) => {
   const [hovered, setHovered] = React.useState(false);
   return (
@@ -94,7 +95,10 @@ const Card = ({
         <h2 className="dark:text-white text-3xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center">
           {title}
         </h2>
-        <h2 className="dark:text-white text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center" style={{color: '#e4ecff'}}>
+        <h2
+          className="dark:text-white text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center"
+          style={{ color: '#e4ecff' }}
+        >
           {description}
         </h2>
       </div>
