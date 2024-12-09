@@ -33,7 +33,9 @@ export function TypewriterEffectSmoothDemo() {
           <br />A web developer based in India.
         </p>
         <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
-          <a href="#projects">Show my work</a>
+          <a href="./AAKASH_RAJBHAR_RESUME.pdf" download={'Resume'}>
+            Download Resume
+          </a>
         </button>
         {/* <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">
           Signup
