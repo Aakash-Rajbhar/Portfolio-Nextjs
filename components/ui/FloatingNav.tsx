@@ -1,13 +1,14 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "framer-motion";
-import { cn } from "@/utils/cn";
-import Link from "next/link";
+} from 'framer-motion';
+import { cn } from '@/utils/cn';
+import Link from 'next/link';
+import ThemeToggle from '../ToggleTheme';
 
 export const FloatingNav = ({
   navItems,
@@ -24,9 +25,9 @@ export const FloatingNav = ({
 
   const [visible, setVisible] = useState(false);
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
+  useMotionValueEvent(scrollYProgress, 'change', (current) => {
     // Check if current is not undefined and is a number
-    if (typeof current === "number") {
+    if (typeof current === 'number') {
       let direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
@@ -56,7 +57,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border  rounded-3xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(23,23,23,0.02),0px_0px_0px_1px_rgba(23,23,23,0.08)] z-[5000] px-10 py-5 border-white/[0.2]  items-center justify-center space-x-4 bg-black/80",
+          'flex max-w-fit  fixed top-10 inset-x-0 mx-auto border  rounded-3xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(23,23,23,0.02),0px_0px_0px_1px_rgba(23,23,23,0.08)] z-[5000] px-10 py-5 border-white/[0.2]  items-center justify-center space-x-4 bg-white/90 dark:bg-black/80',
           className
         )}
       >
@@ -65,14 +66,14 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              'relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500'
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className="cursor-pointer text-sm">{navItem.name}</span>
           </Link>
         ))}
-        
+        <ThemeToggle />
       </motion.div>
     </AnimatePresence>
   );

@@ -3,6 +3,7 @@
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 
 export const InfiniteMovingCards = ({
   items,
@@ -24,11 +25,14 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     addAnimation();
   }, [addAnimation]);
+
   const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -45,56 +49,47 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
-      if (direction === 'left') {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'forwards'
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'reverse'
-        );
-      }
+      containerRef.current.style.setProperty(
+        '--animation-direction',
+        direction === 'left' ? 'forwards' : 'reverse'
+      );
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
-      if (speed === 'fast') {
-        containerRef.current.style.setProperty('--animation-duration', '20s');
-      } else if (speed === 'normal') {
-        containerRef.current.style.setProperty('--animation-duration', '40s');
-      } else {
-        containerRef.current.style.setProperty('--animation-duration', '80s');
-      }
+      const duration =
+        speed === 'fast' ? '20s' : speed === 'normal' ? '40s' : '80s';
+      containerRef.current.style.setProperty('--animation-duration', duration);
     }
   };
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        'scroller relative z-20  w-full overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
+        'scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          ' flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap',
-          start && 'animate-scroll ',
+          'flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap',
+          start && 'animate-scroll',
           pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
       >
         {items.map((item, idx) => (
           <li
-            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-400 p-5 md:p-16 md:w-[50vw]"
-            style={{
-              background: ' rgba(23,23,23, .6)',
-              backgroundColor:
-                'linear-gradient(90deg, rgba(23,23,23,1) 0%, rgba(0,0,0,1) 100%)',
-            }}
+            className={cn(
+              'w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 p-5 md:p-16 md:w-[50vw]',
+              'dark:border-slate-400 dark:bg-gradient-to-r dark:from-gray-900 dark:to-black',
+              'border-gray-300 bg-gradient-to-r from-gray-100 to-white'
+            )}
             key={idx}
           >
             <blockquote>
@@ -114,13 +109,25 @@ export const InfiniteMovingCards = ({
                     />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className=" text-3xl leading-[1.6] text-white font-bold">
+                    <span
+                      className={cn(
+                        'text-3xl leading-[1.6] font-bold',
+                        'dark:text-white',
+                        'text-gray-900'
+                      )}
+                    >
                       {item.name}
                     </span>
                   </div>
                 </span>
               </div>
-              <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal">
+              <span
+                className={cn(
+                  'relative z-20 text-sm md:text-lg leading-[1.6] font-normal',
+                  'dark:text-white',
+                  'text-gray-700'
+                )}
+              >
                 {item.quote}
               </span>
             </blockquote>

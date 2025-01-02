@@ -34,7 +34,7 @@ const Footer = () => {
           {socialMedia.map((profile) => (
             <div
               key={profile.id}
-              className="cursor-pointer w-10 h-10 flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border-white-200"
+              className="cursor-pointer w-10 h-10 flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-neutral-600 dark:bg-black-200 rounded-lg border-white-200"
             >
               <a href={profile.link} target="_blank" rel="noopener noreferrer">
                 <Image

@@ -59,21 +59,21 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        `row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4`,
+        `row-span-1 relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4`,
         className
       )}
       style={{
-        background: ' rgba(23,23,23, .6)',
+        // background: 'rgba(23,23,23, .6)',
         backgroundColor:
           'linear-gradient(90deg, rgba(23,23,23,1) 0%, rgba(0,0,0,1) 100%)',
       }}
     >
-      <div className={`${id === 6 && 'flex justify-center'} h-full`}>
+      <div className={`${id === 6 && 'flex justify-center '} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <Image
               src={img}
-              className={cn(imgClassName, 'object-cover object-center ')}
+              className={cn(imgClassName, 'object-cover object-center')}
               alt={img}
               width={300}
               height={300}
@@ -111,7 +111,13 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight text-neutral-600 text-sm md:text-xs lg:text-base z-10 dark:text-neutral-200">
             {description}
           </div>
-          <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10 text-neutral-600 dark:text-neutral-200">
+          <div
+            className={`font-sans font-bold text-lg lg:text-3xl max-w-96 z-10 ${
+              id === 6 && 'text-neutral-200'
+            } ${
+              id === 1 && 'text-neutral-200'
+            } text-neutral-600 dark:text-neutral-200`}
+          >
             {title}
           </div>
 
@@ -123,19 +129,19 @@ export const BentoGridItem = ({
                 {['React', 'Next.js', 'TailwindCSS'].map((item) => (
                   <span
                     key={item}
-                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#1c1c1d]"
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-neutral-400 dark:bg-[#1c1c1d]"
                   >
                     {item}
                   </span>
                 ))}
-                <span className="py-4 px-3 rounded-lg text-center bg-[#1c1c1d]" />
+                <span className="py-4 px-3 rounded-lg text-center bg-neutral-400 dark:bg-[#1c1c1d]" />
               </div>
               <div className="flex flex-col gap-3 lg:gap-4">
-                <span className="py-4 px-3 rounded-lg text-center bg-[#1c1c1d]" />
+                <span className="py-4 px-3 rounded-lg text-center bg-neutral-400 dark:bg-[#1c1c1d]" />
                 {['JavaScript', 'Node JS', 'Express Js'].map((item) => (
                   <span
                     key={item}
-                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#1c1c1d]"
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-neutral-400 dark:bg-[#1c1c1d]"
                   >
                     {item}
                   </span>
@@ -146,7 +152,7 @@ export const BentoGridItem = ({
 
           {id === 6 && (
             <div className="mt-5 relative">
-              <div className={`absolute -bottom-5 right-0`}>
+              <div className={`absolute -bottom-5 right-0 text-white`}>
                 <Lottie
                   options={{
                     loop: copied,
@@ -162,7 +168,7 @@ export const BentoGridItem = ({
                 title={copied ? 'Email copied' : 'Copy My Email'}
                 icon={<IoCopyOutline />}
                 position="left"
-                otherClasses="bg-[#161a31"
+                otherClasses="bg-[#161a31]"
                 handleClick={handleCopy}
               />
             </div>
