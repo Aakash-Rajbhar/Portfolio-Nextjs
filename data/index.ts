@@ -72,6 +72,15 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
+    title: 'Price Lytic: Price Tracker App',
+    des: 'A price tracker app that allows users to track the price of products on e-commerce websites. Built using Next JS, Tailwind CSS, and BrightData.',
+    img: '/price-tracker.png',
+    iconLists: ['/next.svg', '/tail.svg', '/bright-data.svg'],
+    link: 'https://price-lytic.vercel.app/',
+  },
+
+  {
+    id: 2,
     title: 'Storely - Cloud Storage App',
     des: 'A cloud storage app that allows users to upload, download, and manage files. Built using Next JS, Tailwind CSS, and Appwrite.',
     img: '/project5.png',
@@ -79,7 +88,7 @@ export const projects = [
     link: 'https://storely-web.vercel.app/',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Online Code Editor (IDE) ',
     des: 'A fully functional code editor with a live preview, built using React, Tailwind CSS, and Monaco Editor.',
     img: '/project2.png',
@@ -87,7 +96,7 @@ export const projects = [
     link: 'https://my-online-code-editor.vercel.app/',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Recipe Website - YumBites',
     des: 'A recipe website with search, and filtering features, built using React.js and Tailwind CSS.',
     img: '/project1.png',
@@ -95,7 +104,7 @@ export const projects = [
     link: 'https://aakash-rajbhar.github.io/Recipe-Website/',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Nike Website Landing Page',
     des: 'A landing page for Nike, built using React.js, Tailwind CSS. It showcases the modern and minimalist UI/UX design.',
     img: '/project3.png',
@@ -103,7 +112,7 @@ export const projects = [
     link: 'https://aakash-rajbhar.github.io/Nike-Landing-Page/',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Blog Website - Cooding Nook',
     des: 'A blog website with a clean and minimalist design, built using MERN stack. It features authentication, and CRUD operations.',
     img: '/project4.png',
